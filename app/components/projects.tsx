@@ -7,7 +7,7 @@ import { IconButton } from "@mui/material";
 const projects = [
     {
         title: "SRT-Generator",
-        desc: "A modern, responsive portfolio site built with Next.js, Tailwind CSS, and Framer Motion.",
+        desc: "FastAPI app that uses faster-whisper AI to transcribe video/audio files into text in SRT format.",
         link: "https://srt-generator-kavi.vercel.app/",
         tech: ["Python", "AWS EC2", "faster-whisper AI", "React", "TypeScript", "Tailwind CSS"],
         image: "/srt.jpg",
@@ -15,7 +15,7 @@ const projects = [
     },
     {
         title: "Personal Expense Tracker",
-        desc: "A real-time weather dashboard using OpenWeatherMap API and React.",
+        desc: "A real-time personal finance dashboard used to track expenses.",
         link: "https://finance-dashboard-kavi.vercel.app/",
         tech: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Chart.js", "Google Oauth"],
         image: "/finance.jpg",
@@ -23,7 +23,7 @@ const projects = [
     },
     {
         title: "House of China",
-        desc: "A full-stack blog platform with authentication, markdown support, and comments.",
+        desc: "A full-stack restaurant ordering platform with user authentication and Stripe-powered payments.",
         link: "https://house-of-china-lutz.vercel.app/",
         tech: ["React", "TypeScript", "Next.js", "Supabase", "Tailwind CSS", "Stripe"],
         image: "/house.jpg",
@@ -31,8 +31,9 @@ const projects = [
     },
     {
         title: "AI Connect Four",
-        desc: "A feature-rich e-commerce site with Stripe integration and product management.",
+        desc: "Connect Four powered by deterministic algorithms (Minimax/Alpha-Beta Pruning) to simulate AI.",
         image: "/connect4.jpg",
+        github: "https://github.com/Kavi-1/ai-connect-four",
         tech: ["Python", "Pygame"]
     },
 ];
