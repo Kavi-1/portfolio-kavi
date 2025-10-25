@@ -7,7 +7,7 @@ import { IconButton } from "@mui/material";
 const projects = [
     {
         title: "SRT-Generator",
-        desc: "FastAPI app that uses faster-whisper AI to transcribe video/audio files into text in SRT format.",
+        desc: "FastAPI app that uses faster-whisper AI to transcribe video/audio files into subtitles.",
         link: "https://srt-generator-kavi.vercel.app/",
         tech: ["Python", "AWS EC2", "faster-whisper AI", "React", "TypeScript", "Tailwind CSS"],
         image: "/srt.jpg",
@@ -66,12 +66,12 @@ export default function Projects() {
                                 <div className="flex flex-row justify-between items-center mb-2 mt-0">
                                     <h3 className={"font-poppins text-xl text-black font-semibold"}>{project.title}</h3>
                                     <div className="flex flex-row gap-0">
-                                        <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                        <a href={project.github} target="_blank" rel="noopener noreferrer">
                                             <IconButton sx={iconButtonStyle}>
                                                 <GitHubIcon />
                                             </IconButton>
                                         </a>
-                                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                                        <a href={project.link} target="_blank" rel="noopener noreferrer">
                                             {project.link && <IconButton sx={iconButtonStyle}>
                                                 <LaunchIcon />
                                             </IconButton>}
