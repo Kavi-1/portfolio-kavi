@@ -48,12 +48,12 @@ const iconButtonStyle = {
 
 export default function Projects() {
     return (
-        <div className="bg-white w-full">
-            <section className="bg-white w-full max-w-4xl mx-auto py-20  px-4" id="projects">
-                <h2 className="text-2xl mb-12 text-center font-poppins text-gray-600">Projects</h2>
+        <div className="bg-white w-full dark:bg-gray-800">
+            <section className="bg-white w-full max-w-4xl mx-auto py-20  px-4 dark:bg-gray-800" id="projects">
+                <h2 className="text-2xl mb-12 text-center font-poppins text-gray-600 dark:text-zinc-300">Projects</h2>
                 <div className="grid gap-8 md:grid-cols-2">
                     {projects.map((project, i) => (
-                        <div className="rounded-xl border border-zinc-200 bg-white shadow-md hover:shadow-xl transition-all hover:scale-102 transition-transform duration-200" key={i}>
+                        <div className="rounded-xl border border-zinc-200 dark:bg-gray-700 shadow-md hover:shadow-xl transition-all hover:scale-102 transition-transform duration-200 dark:border-0" key={i}>
                             <div className="w-full aspect-video overflow-hidden relative rounded-t-xl">
                                 <Image
                                     src={project.image}
@@ -64,25 +64,25 @@ export default function Projects() {
                             </div>
                             <div className="p-6 pt-4">
                                 <div className="flex flex-row justify-between items-center mb-2 mt-0">
-                                    <h3 className={"font-poppins text-xl text-black font-semibold"}>{project.title}</h3>
+                                    <h3 className={"font-poppins text-xl text-black font-semibold dark:text-white"}>{project.title}</h3>
                                     <div className="flex flex-row gap-0">
                                         <a href={project.github} target="_blank" rel="noopener noreferrer">
                                             <IconButton sx={iconButtonStyle}>
-                                                <GitHubIcon />
+                                                <GitHubIcon sx={{ color: "gray" }} />
                                             </IconButton>
                                         </a>
                                         <a href={project.link} target="_blank" rel="noopener noreferrer">
                                             {project.link && <IconButton sx={iconButtonStyle}>
-                                                <LaunchIcon />
+                                                <LaunchIcon sx={{ color: "gray" }} />
                                             </IconButton>}
                                         </a>
                                     </div>
                                 </div>
-                                <p className={"font-poppins text-sm text-zinc-600 mb-4"}>{project.desc}</p>
+                                <p className={"font-poppins text-sm text-zinc-600 mb-4 dark:text-zinc-300"}>{project.desc}</p>
                                 {project.tech?.map((t) => (
                                     <span
                                         key={t}
-                                        className="bg-white border border-zinc-200 text-black text-xs px-2 py-1 rounded-xl font-mono inline-block mr-2 mt-2"
+                                        className="bg-white border border-zinc-200 text-black text-xs px-2 py-1 rounded-xl font-mono inline-block mr-2 mt-2 dark:bg-gray-700 dark:border-gray-800 dark:text-zinc-300"
                                     >
                                         {t}
                                     </span>

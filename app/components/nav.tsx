@@ -8,13 +8,13 @@ export default function Nav() {
     const [open, setOpen] = useState(false);
 
     return (
-        <nav className="font-poppins fixed top-0 left-0 z-50 w-full bg-white/80 backdrop-blur-sm border-b border-gray-200">
+        <nav className="font-poppins fixed top-0 left-0 z-50 w-full bg-white/80 backdrop-blur-sm border-b border-gray-200 dark:bg-gray-800/40 dark:border-gray-700">
             <div className="max-w-6xl mx-auto px-6 md:px-8 flex items-center justify-between h-16">
-                <div className="text-lg text-black font-medium">
+                <div className="text-lg text-black dark:text-white font-medium">
                     <Link href="/#home">Kavi Lu</Link>
                 </div>
 
-                <div className="hidden md:flex gap-6 text-base text-black font-medium">
+                <div className="hidden md:flex gap-6 text-base text-black dark:text-white font-medium">
                     <Link href="/#about">About</Link>
                     <Link href="/#projects">Projects</Link>
                     <Link href="/#courses">Courses</Link>

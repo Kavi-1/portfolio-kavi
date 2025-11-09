@@ -8,7 +8,7 @@ import Projects from "./components/projects";
 export default function Home() {
   return (
     <>
-      <div className="min-h-screen bg-white flex flex-col">
+      <div className="min-h-screen bg-white dark:bg-gray-800 flex flex-col">
         <Nav />
         <Main />
       </div>

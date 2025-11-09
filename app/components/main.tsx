@@ -52,7 +52,7 @@ function Typewriter() {
     }, [charIdx, textIdx, deleting]);
 
     return (
-        <div className="text-4xl text-black font-semibold font-mono">
+        <div className="text-4xl text-black dark:text-white font-semibold font-mono">
             {displayed}
             <span className={"inline-block w-2" + (showCursor ? " opacity-100" : " opacity-0")}>|</span>
         </div>
@@ -76,24 +76,24 @@ export default function Main() {
                     href="/kavi-resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-poppins hover:bg-blue-50 hover:scale-105 px-6 py-2 rounded-full bg-white text-zinc-500 shadow-md transition ease-in-out duration-200"
+                    className="font-poppins hover:bg-blue-50 hover:scale-105 px-6 py-2 rounded-full bg-white text-zinc-500 shadow-md transition ease-in-out duration-200 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:border-gray-400 dark:border-2"
                 >
                     <DownloadIcon className="mr-1" />
                     Resume
                 </a>
             </div>
             <div className="absolute bottom-8 left-0 w-full flex justify-center gap-2">
-                <a href="https://www.github.com/Kavi-1">
+                <a href="https://www.github.com/Kavi-1" target="_blank" rel="noopener noreferrer">
                     <IconButton sx={iconButtonStyle}>
-                        <GitHubIcon className="text-black text-lg text-gray-500 hover:text-black font-mono" style={{ fontSize: 26 }} />
+                        <GitHubIcon className="text-gray-50 text-lg  hover:text-blue-300 font-mono" style={{ fontSize: 26 }} />
                     </IconButton>
                 </a>
                 <a href="mailto:kavilu127@gmail.com">
                     <IconButton sx={iconButtonStyle}>
-                        <EmailIcon className="text-black text-lg text-gray-500 hover:text-red-800 font-mono" style={{ fontSize: 26 }} />
+                        <EmailIcon className="text-gray-50 text-lg hover:text-red-300 font-mono" style={{ fontSize: 26 }} />
                     </IconButton>
                 </a>
             </div>
-        </main>
+        </main >
     );
 }
