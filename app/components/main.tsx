@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import DownloadIcon from '@mui/icons-material/Download';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import EmailIcon from '@mui/icons-material/Email';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { IconButton } from "@mui/material";
 
 function Typewriter() {
@@ -86,6 +87,11 @@ export default function Main() {
                 <a href="https://www.github.com/Kavi-1" target="_blank" rel="noopener noreferrer">
                     <IconButton sx={iconButtonStyle}>
                         <GitHubIcon className="text-gray-50 text-lg  hover:text-blue-300 font-mono" style={{ fontSize: 26 }} />
+                    </IconButton>
+                </a>
+                <a href="https://www.linkedin.com/in/kavi-lu-2239b6245/ " target="_blank" rel="noopener noreferrer">
+                    <IconButton sx={iconButtonStyle}>
+                        <LinkedInIcon className="text-gray-50 text-lg hover:text-blue-300 font-mono" style={{ fontSize: 26 }} />
                     </IconButton>
                 </a>
                 <a href="mailto:kavilu127@gmail.com">
