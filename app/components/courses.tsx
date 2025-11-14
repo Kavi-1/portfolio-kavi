@@ -5,7 +5,7 @@ const courses = [
     { number: "CS 350", name: "Distributed Systems", term: "Fall 2024" },
     { number: "CS 330", name: "Analysis of Algorithms", term: "Spring 2024" },
     { number: "CS 365", name: "Foundations of Data Science", term: "Spring 2025" },
-    { number: "CS 391", name: "Topics in Computer Science", term: "Spring 2025" },
+    { number: "CS 391", name: "Web Application Development", term: "Spring 2025" },
     { number: "CS 210", name: "Computer Systems", term: "Fall 2023" },
     { number: "CS 237", name: "Probability in Computing", term: "Fall 2023" },
     { number: "CS 320", name: "Concepts Programming Languages", term: "Spring 2024" },
