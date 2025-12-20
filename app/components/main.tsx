@@ -89,7 +89,7 @@ export default function Main() {
                         <GitHubIcon className="text-gray-50 text-lg  hover:text-blue-300 font-mono" style={{ fontSize: 26 }} />
                     </IconButton>
                 </a>
-                <a href="https://www.linkedin.com/in/kavi-lu-2239b6245/ " target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/kavilu/" target="_blank" rel="noopener noreferrer">
                     <IconButton sx={iconButtonStyle}>
                         <LinkedInIcon className="text-gray-50 text-lg hover:text-blue-300 font-mono" style={{ fontSize: 26 }} />
                     </IconButton>
