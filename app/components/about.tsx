@@ -1,10 +1,30 @@
+"use client";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+
 export default function About() {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
+
     return (
         <div className="bg-gray-50 w-full dark:bg-gray-800">
-            <section className="bg-gray-50 w-full max-w-4xl mx-auto py-20 px-4 flex flex-col justify-center items-center dark:bg-gray-800" id="about">
-                <h2 className="text-2xl mb-12 text-center font-poppins text-gray-600 dark:text-gray-300">About</h2>
+            <section className="bg-gray-50 w-full max-w-4xl mx-auto py-20 px-4 flex flex-col justify-center items-center dark:bg-gray-800" id="about" ref={ref}>
+                <motion.h2
+                    className="text-2xl mb-12 text-center font-poppins text-gray-600 dark:text-gray-300"
+                    initial={{ opacity: 0 }}
+                    animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.6 }}
+                >
+                    About
+                </motion.h2>
 
-                <div className="rounded-xl border dark:border-0 border-zinc-200 bg-white shadow-md hover:shadow-xl transition-all hover:scale-101 transition-transform duration-200 overflow-hidden">
+                <motion.div
+                    className="rounded-xl border dark:border-0 border-zinc-200 bg-white shadow-md hover:shadow-xl transition-all hover:scale-101 transition-transform duration-200 overflow-hidden"
+                    initial={{ opacity: 0 }}
+                    animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                >
                     <div className="w-full p-6 dark:bg-gray-800">
                         <h3 className="font-poppins text-xl text-center text-black font-semibold mb-2 dark:text-white">Kavi Lu</h3>
                         <p className="font-poppins text-sm text-center text-zinc-600 mb-4 dark:text-zinc-200">
@@ -18,7 +38,7 @@ export default function About() {
                             </span>
                         </p>
                     </div>
-                </div>
+                </motion.div>
             </section>
         </div>
     );

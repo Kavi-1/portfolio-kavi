@@ -1,3 +1,8 @@
+"use client";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+
 const courses = [
     { number: "CS 440", name: "Artificial Intelligence", term: "Fall 2025" },
     { number: "CS 411", name: "Software Engineering", term: "Fall 2025" },
@@ -18,22 +23,35 @@ const courses = [
 ];
 
 export default function Courses() {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
+
     return (
         <div className="bg-gray-50 w-full dark:bg-gray-800">
-            <section className="bg-gray-50 w-full max-w-4xl mx-auto py-20 px-4 dark:bg-gray-800" id="courses">
-                <h2 className="text-gray-600 text-2xl mb-12 text-center font-poppins dark:text-zinc-300">Courses</h2>
+            <section className="bg-gray-50 w-full max-w-4xl mx-auto py-20 px-4 dark:bg-gray-800" id="courses" ref={ref}>
+                <motion.h2
+                    className="text-gray-600 text-2xl mb-12 text-center font-poppins dark:text-zinc-300"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                    Courses
+                </motion.h2>
                 <div className="grid gap-5 md:grid-cols-2">
-                    {courses.map((course) => (
-                        <div
+                    {courses.map((course, i) => (
+                        <motion.div
                             key={course.number + course.term}
                             className="rounded-xl border dark:border-0 border-zinc-200 bg-white dark:bg-gray-700 shadow-md hover:shadow-xl transition-all hover:scale-101 transition-transform duration-200 p-6 flex flex-col"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.4, delay: i * 0.075, ease: "easeInOut" }}
                         >
                             <div className="flex flex-row justify-between items-center mb-1">
                                 <span className="text-black font-mono text-xs dark:text-zinc-300">{course.number}</span>
                                 <span className="text-xs font-poppins text-zinc-400 ml-2 dark:text-zinc-300">{course.term}</span>
                             </div>
                             <span className="font-poppins text-black text-base font-semibold mb-1 dark:text-white">{course.name}</span>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </section>

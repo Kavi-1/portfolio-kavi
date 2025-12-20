@@ -1,8 +1,11 @@
-
+"use client";
 import Image from "next/image";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
 import { IconButton } from "@mui/material";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 const projects = [
     {
@@ -47,13 +50,29 @@ const iconButtonStyle = {
 };
 
 export default function Projects() {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
+
     return (
         <div className="bg-white w-full dark:bg-gray-800">
-            <section className="bg-white w-full max-w-4xl mx-auto py-20  px-4 dark:bg-gray-800" id="projects">
-                <h2 className="text-2xl mb-12 text-center font-poppins text-gray-600 dark:text-zinc-300">Projects</h2>
+            <section className="bg-white w-full max-w-4xl mx-auto py-20  px-4 dark:bg-gray-800" id="projects" ref={ref}>
+                <motion.h2
+                    className="text-2xl mb-12 text-center font-poppins text-gray-600 dark:text-zinc-300"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                    Projects
+                </motion.h2>
                 <div className="grid gap-8 md:grid-cols-2">
                     {projects.map((project, i) => (
-                        <div className="rounded-xl border border-zinc-200 dark:bg-gray-700 shadow-md hover:shadow-xl transition-all hover:scale-102 transition-transform duration-200 dark:border-0" key={i}>
+                        <motion.div
+                            className="rounded-xl border border-zinc-200 dark:bg-gray-700 shadow-md hover:shadow-xl transition-all hover:scale-102 transition-transform duration-200 dark:border-0"
+                            key={i}
+                            initial={{ opacity: 0 }}
+                            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                            transition={{ duration: 1, delay: i * 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+                        >
                             <div className="w-full aspect-video overflow-hidden relative rounded-t-xl">
                                 <Image
                                     src={project.image}
@@ -88,7 +107,7 @@ export default function Projects() {
                                     </span>
                                 ))}
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </section>
