@@ -22,7 +22,7 @@ export default function Nav() {
 
                 <div className="hidden md:flex gap-6 text-base text-black dark:text-white font-medium">
                     <Link href="/#about">Test</Link>
-                    <Link href="/#projects">Projects</Link>
+                    <Link href="/#projects">Test2</Link>
                     <Link href="/#courses">Courses</Link>
                 </div>
 
