@@ -1,8 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Legacy variables for compatibility */
+  --background: #121212;
+  --foreground: #FFFFFF;
+
+  /* Brand Colors - BRIGHT Neon Blue/Purple Tech Gradient */
+  --primary: #0080FF;
+  /* bright electric blue */
+  --primary-dark: #0066CC;
+  /* deeper electric blue */
+  --secondary: #A855F7;
+  /* bright neon purple */
+  --accent: #0080FF;
+  /* unified with primary */
+  --accent-secondary: #A855F7;
+  /* unified with secondary */
+
+  /* Background System - Softer Dark Theme */
+  --bg-primary: #121212;
+  /* soft black */
+  --bg-secondary: #1A1A1A;
+  /* lighter dark */
+  --bg-tertiary: #0F0F0F;
+  /* subtle variation */
+
+  /* Text Colors */
+  --text-primary: #FFFFFF;
+  --text-secondary: #E5E7EB;
+  --text-tertiary: #9CA3AF;
+
+  /* Shadows with BRIGHT Neon Blue Glow */
+  --shadow-sm: 0 2px 8px rgba(0, 128, 255, 0.2);
+  --shadow-md: 0 4px 16px rgba(0, 128, 255, 0.3);
+  --shadow-lg: 0 8px 32px rgba(0, 128, 255, 0.35);
+  --shadow-glow: 0 0 30px rgba(0, 128, 255, 0.6);
+
+  /* Gradients - BRIGHT Neon Blue to Purple */
+  --gradient-primary: linear-gradient(135deg, #0080FF 0%, #A855F7 100%);
+  --gradient-mesh: radial-gradient(at 20% 30%, rgba(0, 128, 255, 0.2) 0%, transparent 50%),
+    radial-gradient(at 80% 70%, rgba(168, 85, 247, 0.2) 0%, transparent 50%);
+  --gradient-border: linear-gradient(90deg, #0080FF, #A855F7);
+
+  /* Glass Effect - BRIGHT Neon Blue Tint */
+  --glass-bg: rgba(26, 26, 26, 0.5);
+  --glass-border: rgba(0, 128, 255, 0.2);
+  --glass-highlight: rgba(255, 255, 255, 0.05);
 }
 
 @theme inline {
@@ -12,10 +55,86 @@
   --font-mono: var(--font-geist-mono);
 }
 
+[data-theme="dark"] {
+  --background: #121212;
+  --foreground: #FFFFFF;
+
+  --bg-primary: #121212;
+  --bg-secondary: #1A1A1A;
+  --bg-tertiary: #0F0F0F;
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #E5E7EB;
+  --text-tertiary: #9CA3AF;
+
+  --shadow-glow: 0 0 24px rgba(139, 92, 246, 0.4);
+  --glass-bg: rgba(26, 26, 26, 0.5);
+  --glass-border: rgba(139, 92, 246, 0.15);
+  --glass-highlight: rgba(255, 255, 255, 0.03);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ffffff;
-    --foreground: #ededed;
+    --background: #121212;
+    --foreground: #FFFFFF;
+
+    --bg-primary: #121212;
+    --bg-secondary: #1A1A1A;
+    --bg-tertiary: #0F0F0F;
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #E5E7EB;
+    --text-tertiary: #9CA3AF;
+
+    --shadow-glow: 0 0 30px rgba(0, 128, 255, 0.6);
+    --glass-bg: rgba(26, 26, 26, 0.5);
+    --glass-border: rgba(0, 128, 255, 0.2);
+    --glass-highlight: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Animation Keyframes */
+@keyframes gradient-shift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes gradient-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
   }
 }
 
@@ -25,6 +144,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Font Families */
 .font-open-sans {
   font-family: var(--font-open-sans), sans-serif;
 }
@@ -35,4 +155,47 @@ body {
 
 .font-poppins {
   font-family: var(--font-poppins), sans-serif;
+}
+
+/* Utility Classes */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-highlight),
+    0 0 16px rgba(0, 0, 0, 0.2);
+}
+
+.gradient-border {
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
+    var(--gradient-border) border-box;
+}
+
+.shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

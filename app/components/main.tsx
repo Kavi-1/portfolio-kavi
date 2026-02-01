@@ -1,11 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import DownloadIcon from '@mui/icons-material/Download';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import EmailIcon from '@mui/icons-material/Email';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { IconButton } from "@mui/material";
+import { Download, Github, Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
 function Typewriter() {
@@ -54,64 +50,85 @@ function Typewriter() {
     }, [charIdx, textIdx, deleting]);
 
     return (
-        <div className="text-4xl text-black dark:text-white font-semibold font-mono">
+        <div className="text-4xl md:text-5xl font-semibold font-mono gradient-text">
             {displayed}
-            <span className={"inline-block w-2" + (showCursor ? " opacity-100" : " opacity-0")}>|</span>
+            <span className={"inline-block w-2 gradient-text" + (showCursor ? " opacity-100" : " opacity-0")}>|</span>
         </div>
     );
 }
 
-const iconButtonStyle = {
-    transition: 'transform 0.2s, color 0.2s',
-    '&:hover': {
-        transform: 'scale(1.1)',
-    },
-};
-
 export default function Main() {
     return (
-        <main className="flex flex-col h-screen w-full items-center justify-center relative">
+        <main className="relative flex flex-col h-screen w-full items-center justify-center overflow-hidden">
+
             <motion.div
-                className="flex flex-col items-center gap-6 justify-center h-full"
+                className="relative flex flex-col items-center gap-6 justify-center h-full z-10"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut" }}
             >
-                {/* <h1 className="font-poppins text-5xl text-black">Kavi Lu</h1> */}
                 <Typewriter />
                 <motion.a
                     href="/kavi-resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-poppins hover:bg-blue-50 px-6 py-2 rounded-full bg-white text-zinc-500 shadow-md transition ease-in-out duration-200 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-500 dark:border-gray-400 dark:border-2"
-                    whileHover={{ scale: 1.05 }}
+                    className="font-poppins group relative px-8 py-3 rounded-full glass-card text-gray-300 font-medium shadow-lg hover:shadow-glow transition-all duration-300 flex items-center gap-2 border border-purple-500/20 hover:border-purple-500/40"
+                    whileHover={{
+                        scale: 1.05,
+                        transition: { type: "spring", stiffness: 300, damping: 20 }
+                    }}
                     whileTap={{ scale: 0.95 }}
                 >
-                    <DownloadIcon className="mr-1" />
-                    Resume
+                    <Download className="w-5 h-5 group-hover:text-blue-400 transition-colors duration-300" />
+                    <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-300 transition-all duration-300">Resume</span>
                 </motion.a>
             </motion.div>
             <motion.div
-                className="absolute bottom-8 left-0 w-full flex justify-center gap-2"
+                className="absolute bottom-8 left-0 w-full flex justify-center gap-4 z-10"
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
             >
-                <a href="https://www.github.com/Kavi-1" target="_blank" rel="noopener noreferrer">
-                    <IconButton sx={iconButtonStyle}>
-                        <GitHubIcon className="text-gray-50 text-lg  hover:text-blue-300 font-mono" style={{ fontSize: 26 }} />
-                    </IconButton>
-                </a>
-                <a href="https://www.linkedin.com/in/kavilu/" target="_blank" rel="noopener noreferrer">
-                    <IconButton sx={iconButtonStyle}>
-                        <LinkedInIcon className="text-gray-50 text-lg hover:text-blue-300 font-mono" style={{ fontSize: 26 }} />
-                    </IconButton>
-                </a>
-                <a href="mailto:kavilu127@gmail.com">
-                    <IconButton sx={iconButtonStyle}>
-                        <EmailIcon className="text-gray-50 text-lg hover:text-red-300 font-mono" style={{ fontSize: 26 }} />
-                    </IconButton>
-                </a>
+                <motion.a
+                    href="https://www.github.com/Kavi-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-full glass-card text-gray-400 hover:text-blue-400 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] border border-transparent hover:border-purple-500/30"
+                    whileHover={{
+                        scale: 1.1,
+                        y: -5,
+                        transition: { type: "spring", stiffness: 300, damping: 20 }
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                >
+                    <Github className="w-6 h-6" />
+                </motion.a>
+                <motion.a
+                    href="https://www.linkedin.com/in/kavilu/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-full glass-card text-gray-400 hover:text-purple-300 transition-all duration-300 hover:shadow-[0_0_20px_rgba(99,102,241,0.4)] border border-transparent hover:border-purple-400/30"
+                    whileHover={{
+                        scale: 1.1,
+                        y: -5,
+                        transition: { type: "spring", stiffness: 300, damping: 20 }
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                >
+                    <Linkedin className="w-6 h-6" />
+                </motion.a>
+                <motion.a
+                    href="mailto:kavilu127@gmail.com"
+                    className="p-3 rounded-full glass-card text-gray-400 hover:text-blue-400 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] border border-transparent hover:border-purple-500/30"
+                    whileHover={{
+                        scale: 1.1,
+                        y: -5,
+                        transition: { type: "spring", stiffness: 300, damping: 20 }
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                >
+                    <Mail className="w-6 h-6" />
+                </motion.a>
             </motion.div>
         </main >
     );

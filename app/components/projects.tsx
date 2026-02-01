@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LaunchIcon from '@mui/icons-material/Launch';
-import { IconButton } from "@mui/material";
+import { Github, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
@@ -42,11 +40,9 @@ const projects = [
 ];
 
 
-const iconButtonStyle = {
-    transition: 'transform 0.2s, color 0.2s',
-    '&:hover': {
-        transform: 'scale(1.1)',
-    },
+// Unified gradient for all tech tags - BRIGHT neon colors
+const getTechColor = (tech: string) => {
+    return "from-blue-500 to-purple-400";
 };
 
 export default function Projects() {
@@ -54,10 +50,9 @@ export default function Projects() {
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     return (
-        <div className="bg-white w-full dark:bg-gray-800">
-            <section className="bg-white w-full max-w-4xl mx-auto py-20  px-4 dark:bg-gray-800" id="projects" ref={ref}>
+        <section className="w-full max-w-4xl mx-auto py-20 px-4" id="projects" ref={ref}>
                 <motion.h2
-                    className="text-2xl mb-12 text-center font-poppins text-gray-600 dark:text-zinc-300"
+                    className="text-3xl mb-12 text-center font-poppins font-bold gradient-text"
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
@@ -67,50 +62,71 @@ export default function Projects() {
                 <div className="grid gap-8 md:grid-cols-2">
                     {projects.map((project, i) => (
                         <motion.div
-                            className="rounded-xl border border-zinc-200 dark:bg-gray-700 shadow-md hover:shadow-xl transition-all hover:scale-102 transition-transform duration-200 dark:border-0"
+                            className="group relative rounded-xl overflow-hidden glass-card shadow-lg hover:shadow-glow border border-white/10"
                             key={i}
-                            initial={{ opacity: 0 }}
-                            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                            transition={{ duration: 1, delay: i * 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                            transition={{
+                                opacity: { duration: 0.6, delay: i * 0.15, ease: "easeOut" },
+                                y: { duration: 0.2, ease: "easeOut" }
+                            }}
+                            whileHover={{
+                                y: -12,
+                                transition: { duration: 0.2, ease: "easeOut" }
+                            }}
                         >
-                            <div className="w-full aspect-video overflow-hidden relative rounded-t-xl">
+                            {/* Animated gradient border on hover */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-400 opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500 -z-10" />
+
+                            <div className="w-full aspect-video overflow-hidden relative">
                                 <Image
                                     src={project.image}
                                     alt={project.title}
                                     fill
-                                    className="object-cover rounded-t-xl"
+                                    className="object-cover"
                                 />
+                                {/* Gradient overlay on hover */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             </div>
-                            <div className="p-6 pt-4">
+                            <div className="relative p-6 pt-4 bg-[#1A1A1A]/60 backdrop-blur-sm border-t-2 border-transparent group-hover:border-blue-500/30 transition-all duration-300">
                                 <div className="flex flex-row justify-between items-center mb-2 mt-0">
-                                    <h3 className={"font-poppins text-xl text-black font-semibold dark:text-white"}>{project.title}</h3>
-                                    <div className="flex flex-row gap-0">
-                                        <a href={project.github} target="_blank" rel="noopener noreferrer">
-                                            <IconButton sx={iconButtonStyle}>
-                                                <GitHubIcon sx={{ color: "gray" }} />
-                                            </IconButton>
+                                    <h3 className="font-poppins text-xl text-white font-semibold group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-300 transition-all duration-300">{project.title}</h3>
+                                    <div className="flex flex-row gap-1">
+                                        <a
+                                            href={project.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="p-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-blue-500/10 transition-all duration-300"
+                                        >
+                                            <Github className="w-5 h-5" />
                                         </a>
-                                        <a href={project.link} target="_blank" rel="noopener noreferrer">
-                                            {project.link && <IconButton sx={iconButtonStyle}>
-                                                <LaunchIcon sx={{ color: "gray" }} />
-                                            </IconButton>}
-                                        </a>
+                                        {project.link && (
+                                            <a
+                                                href={project.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="p-2 rounded-lg text-gray-400 hover:text-purple-300 hover:bg-purple-400/10 transition-all duration-300"
+                                            >
+                                                <ExternalLink className="w-5 h-5" />
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
-                                <p className={"font-poppins text-sm text-zinc-600 mb-4 dark:text-zinc-300"}>{project.desc}</p>
-                                {project.tech?.map((t) => (
-                                    <span
-                                        key={t}
-                                        className="bg-white border border-zinc-200 text-black text-xs px-2 py-1 rounded-xl font-mono inline-block mr-2 mt-2 dark:bg-gray-700 dark:border-gray-800 dark:text-zinc-300"
-                                    >
-                                        {t}
-                                    </span>
-                                ))}
+                                <p className="font-poppins text-sm text-gray-300 mb-4">{project.desc}</p>
+                                <div className="flex flex-wrap gap-2">
+                                    {project.tech?.map((t) => (
+                                        <span
+                                            key={t}
+                                            className="px-2 py-1 text-xs font-mono text-gray-400 border border-gray-700 rounded hover:border-blue-500/50 hover:text-gray-300 transition-all duration-200"
+                                        >
+                                            {t}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
                         </motion.div>
                     ))}
                 </div>
-            </section>
-        </div>
+        </section>
     );
 }
