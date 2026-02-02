@@ -20,38 +20,37 @@ export default function Home() {
 
       {/* Animated gradient orbs - floating across entire screen */}
       <motion.div
-        className="fixed top-0 left-0 w-96 h-96 bg-blue-500/40 rounded-full blur-3xl pointer-events-none"
+        className="fixed top-0 left-0 w-96 h-96 bg-blue-500/70 rounded-full blur-3xl pointer-events-none"
         initial={false}
         animate={{
-          y: ["0vh", "60vh", "20vh", "80vh", "0vh"],
-          x: ["0vw", "70vw", "30vw", "60vw", "0vw"],
-          opacity: [0.3, 0.6, 0.4, 0.5, 0.3],
-          scale: [1, 1.4, 1.2, 1.3, 1],
+          y: ["0vh", "40vh", "70vh", "25vh", "85vh", "15vh", "55vh", "0vh"],
+          x: ["0vw", "55vw", "20vw", "80vw", "45vw", "70vw", "10vw", "0vw"],
+          opacity: [0.2, 0.7, 0.4, 0.8, 0.3, 0.6, 0.5, 0.2],
+          scale: [0.8, 1.6, 1.1, 1.8, 0.9, 1.4, 1.2, 0.8],
         }}
         transition={{
-          duration: 20,
+          duration: 12,
           repeat: Infinity,
           ease: "easeInOut"
         }}
       />
       <motion.div
-        className="fixed top-0 right-0 w-[320px] h-[320px] bg-purple-500/40 rounded-full blur-3xl pointer-events-none"
+        className="fixed top-0 right-0 w-[320px] h-[320px] bg-purple-500/65 rounded-full blur-3xl pointer-events-none"
         initial={false}
         animate={{
-          y: ["10vh", "70vh", "40vh", "5vh", "10vh"],
-          x: ["0vw", "-50vw", "-70vw", "-20vw", "0vw"],
-          opacity: [0.3, 0.65, 0.4, 0.55, 0.3],
-          scale: [1, 1.3, 1.1, 1.25, 1],
+          y: ["10vh", "55vh", "80vh", "30vh", "65vh", "5vh", "45vh", "10vh"],
+          x: ["0vw", "-40vw", "-75vw", "-15vw", "-60vw", "-85vw", "-25vw", "0vw"],
+          opacity: [0.25, 0.75, 0.4, 0.8, 0.3, 0.65, 0.5, 0.25],
+          scale: [0.85, 1.7, 1.0, 1.8, 0.95, 1.5, 1.3, 0.85],
         }}
         transition={{
-          duration: 25,
+          duration: 14,
           repeat: Infinity,
-          ease: "easeInOut",
-          delay: 0.5
+          ease: "easeInOut"
         }}
       />
       <motion.div
-        className="fixed bottom-0 left-0 w-[350px] h-[350px] bg-cyan-500/35 rounded-full blur-3xl pointer-events-none"
+        className="fixed bottom-0 left-0 w-[350px] h-[350px] bg-cyan-500/50 rounded-full blur-3xl pointer-events-none"
         initial={false}
         animate={{
           y: ["0vh", "-60vh", "-30vh", "-70vh", "0vh"],
@@ -67,7 +66,7 @@ export default function Home() {
         }}
       />
       <motion.div
-        className="fixed bottom-0 right-0 w-[280px] h-[280px] bg-purple-400/35 rounded-full blur-3xl pointer-events-none"
+        className="fixed bottom-0 right-0 w-[280px] h-[280px] bg-purple-400/50 rounded-full blur-3xl pointer-events-none"
         initial={false}
         animate={{
           y: ["0vh", "-50vh", "-80vh", "-20vh", "0vh"],
