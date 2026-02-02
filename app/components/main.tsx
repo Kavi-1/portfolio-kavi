@@ -63,6 +63,9 @@ export default function Main() {
 
             <motion.div
                 className="relative flex flex-col items-center gap-6 justify-center h-full z-10"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
             >
                 <Typewriter />
                 <motion.a
@@ -82,6 +85,9 @@ export default function Main() {
             </motion.div>
             <motion.div
                 className="absolute bottom-8 left-0 w-full flex justify-center gap-4 z-10"
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
             >
                 <motion.a
                     href="https://www.github.com/Kavi-1"

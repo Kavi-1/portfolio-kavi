@@ -21,7 +21,7 @@ export default function Home() {
       {/* Animated gradient orbs - floating across entire screen */}
       <motion.div
         className="fixed top-0 left-0 w-96 h-96 bg-blue-500/70 rounded-full blur-3xl pointer-events-none"
-        initial={false}
+        initial={{ y: "0vh", x: "0vw", opacity: 0.2, scale: 0.8 }}
         animate={{
           y: ["0vh", "40vh", "70vh", "25vh", "85vh", "15vh", "55vh", "0vh"],
           x: ["0vw", "55vw", "20vw", "80vw", "45vw", "70vw", "10vw", "0vw"],
@@ -36,7 +36,7 @@ export default function Home() {
       />
       <motion.div
         className="fixed top-0 right-0 w-[320px] h-[320px] bg-purple-500/65 rounded-full blur-3xl pointer-events-none"
-        initial={false}
+        initial={{ y: "10vh", x: "0vw", opacity: 0.25, scale: 0.85 }}
         animate={{
           y: ["10vh", "55vh", "80vh", "30vh", "65vh", "5vh", "45vh", "10vh"],
           x: ["0vw", "-40vw", "-75vw", "-15vw", "-60vw", "-85vw", "-25vw", "0vw"],
@@ -51,7 +51,7 @@ export default function Home() {
       />
       <motion.div
         className="fixed bottom-0 left-0 w-[350px] h-[350px] bg-cyan-500/50 rounded-full blur-3xl pointer-events-none"
-        initial={false}
+        initial={{ y: "0vh", x: "0vw", opacity: 0.25, scale: 1 }}
         animate={{
           y: ["0vh", "-60vh", "-30vh", "-70vh", "0vh"],
           x: ["0vw", "60vw", "80vw", "20vw", "0vw"],
@@ -67,7 +67,7 @@ export default function Home() {
       />
       <motion.div
         className="fixed bottom-0 right-0 w-[280px] h-[280px] bg-purple-400/50 rounded-full blur-3xl pointer-events-none"
-        initial={false}
+        initial={{ y: "0vh", x: "0vw", opacity: 0.25, scale: 1 }}
         animate={{
           y: ["0vh", "-50vh", "-80vh", "-20vh", "0vh"],
           x: ["0vw", "-60vw", "-30vw", "-70vw", "0vw"],
@@ -83,7 +83,7 @@ export default function Home() {
       />
       <motion.div
         className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-blue-600/25 rounded-full blur-3xl pointer-events-none"
-        initial={false}
+        initial={{ y: "-20vh", x: "-30vw", opacity: 0.2, scale: 1 }}
         animate={{
           y: ["-20vh", "30vh", "-10vh", "20vh", "-20vh"],
           x: ["-30vw", "20vw", "30vw", "-20vw", "-30vw"],
