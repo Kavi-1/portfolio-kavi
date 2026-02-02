@@ -10,13 +10,10 @@ export default function Nav() {
     return (
         <motion.nav
             className="font-poppins fixed top-0 left-0 z-50 w-full bg-[#1A1A1A]/60 backdrop-blur-md border-b border-white/10 shadow-lg shadow-blue-500/5"
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
         >
             <div className="max-w-6xl mx-auto px-6 md:px-8 flex items-center justify-between h-16">
-                <div className="text-lg font-semibold">
-                    <Link href="/#home" className="gradient-text">Kavi Lu</Link>
+                <div className="text-lg">
+                    <Link href="/#home" className="text-white font-normal">Kavi Lu</Link>
                 </div>
 
                 <div className="hidden md:flex gap-6 text-base text-white font-medium">

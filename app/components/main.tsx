@@ -50,9 +50,9 @@ function Typewriter() {
     }, [charIdx, textIdx, deleting]);
 
     return (
-        <div className="text-4xl md:text-5xl font-semibold font-mono gradient-text">
+        <div className="text-4xl md:text-5xl font-semibold font-mono text-white">
             {displayed}
-            <span className={"inline-block w-2 gradient-text" + (showCursor ? " opacity-100" : " opacity-0")}>|</span>
+            <span className={"inline-block w-2 text-white" + (showCursor ? " opacity-100" : " opacity-0")}>|</span>
         </div>
     );
 }
@@ -63,9 +63,6 @@ export default function Main() {
 
             <motion.div
                 className="relative flex flex-col items-center gap-6 justify-center h-full z-10"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
             >
                 <Typewriter />
                 <motion.a
@@ -85,9 +82,6 @@ export default function Main() {
             </motion.div>
             <motion.div
                 className="absolute bottom-8 left-0 w-full flex justify-center gap-4 z-10"
-                initial={{ opacity: 0, y: 25 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
             >
                 <motion.a
                     href="https://www.github.com/Kavi-1"

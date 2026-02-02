@@ -29,7 +29,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${openSans.variable} ${roboto.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${openSans.variable} ${roboto.variable} ${poppins.variable}`} suppressHydrationWarning>
+      <head>
+        <style dangerouslySetInnerHTML={{ __html: `
+          html, body {
+            background: #121212 !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+          }
+        `}} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

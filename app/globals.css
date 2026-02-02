@@ -37,7 +37,7 @@
   --shadow-glow: 0 0 30px rgba(0, 128, 255, 0.6);
 
   /* Gradients - BRIGHT Neon Blue to Purple */
-  --gradient-primary: linear-gradient(135deg, #0080FF 0%, #A855F7 100%);
+  --gradient-primary: linear-gradient(135deg, #ffffff 0%, #0080FF 100%);
   --gradient-mesh: radial-gradient(at 20% 30%, rgba(0, 128, 255, 0.2) 0%, transparent 50%),
     radial-gradient(at 80% 70%, rgba(168, 85, 247, 0.2) 0%, transparent 50%);
   --gradient-border: linear-gradient(90deg, #0080FF, #A855F7);
@@ -138,10 +138,16 @@
   }
 }
 
+html {
+  background: #121212;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 /* Font Families */
@@ -165,6 +171,9 @@ body {
   background-clip: text;
   background-size: 200% 200%;
   animation: gradient-shift 8s ease infinite;
+  filter: drop-shadow(-1px -1px 0px rgba(255, 255, 255, 0.4))
+          drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5))
+          drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.3));
 }
 
 .glass-card {
